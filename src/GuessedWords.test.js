@@ -3,7 +3,9 @@ import { shallow } from "enzyme";
 import GuessedWords from "./GuessedWords";
 import { checkElement, checkProps } from "../test/testUtils";
 
-const defaultProps = {};
+const defaultProps = {
+  guessedWords: [{ guessedWord: "train", letterMatchCount: 3 }],
+};
 
 /**
  * @function setup
@@ -18,4 +20,8 @@ const setup = (props = {}) => {
 
 test("GuessedWords Component renders without any error", () => {
   const wrapper = setup();
+});
+
+test("proptypes doesn't throw an error", () => {
+  checkProps(GuessedWords, defaultProps);
 });

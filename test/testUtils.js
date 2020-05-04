@@ -12,13 +12,13 @@ export const checkElement = (wrapper, val) => {
 };
 
 /**
- * @param  {React.Component} component
- * @param  {Object} conforming
+ * @param  {React.Component} component - the component we're checking
+ * @param  {Object} expectedProps - The props we expect to get with which we test.
  */
-export const checkProps = (component, conforming) => {
+export const checkProps = (component, expectedProps) => {
   const propError = checkPropTypes(
     component.propTypes,
-    conforming,
+    expectedProps,
     "prop",
     component.name
   );
