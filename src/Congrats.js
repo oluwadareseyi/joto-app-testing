@@ -10,9 +10,13 @@ import React from "react";
 const Congrats = (props) => {
   return props.success ? (
     <div test-data="component-congrats">
-      <span test-data="congrats-message"></span>
+      <span test-data="congrats-message">
+        Congratulations!! You guessed the word!!
+      </span>
     </div>
-  ) : null;
+  ) : (
+    <div test-data="component-congrats"></div>
+  );
 };
 
 export default Congrats;
