@@ -2,21 +2,21 @@ import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
 import Congrats from "./Congrats";
+import {checkElement} from "../test/testUtils";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
-
+/**
+ * @function setup
+ * @param  {Object=} props
+ * @returns {ShallowWrapper}
+ */
 const setup = (props = {}) => {
   return shallow(<Congrats {...props} />);
 };
 
-const checkElement = (val) => {
-  const wrapper = setup();
-  const Component = wrapper.find(`[data-test="${val}"]`);
-  expect(Component.length).toBe(1);
-};
-
 test("renders congrats component without fail", () => {
-  checkElement("congrats-app");
+  const wrapper = setup();
+  checkElement(wrapper, "congrats-app");
 });
 
 test("renders no text when success prop is false", () => {});
