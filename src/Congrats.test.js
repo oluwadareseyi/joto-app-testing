@@ -3,16 +3,19 @@ import Enzyme, { shallow } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
 import Congrats from "./Congrats";
 import checkPropTypes from "check-prop-types";
-import { checkElement } from "../test/testUtils";
+import { checkElement, checkProps } from "../test/testUtils";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
+
+const defaultProps = { success: false };
 /**
  * @function setup
  * @param  {Object=} props
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}) => {
-  return shallow(<Congrats {...props} />);
+  const setupProps = { ...defaultProps, ...props };
+  return shallow(<Congrats {...setupProps} />);
 };
 
 test("renders congrats component without fail", () => {
@@ -34,11 +37,5 @@ test("renders congratulatory text when success prop is true", () => {
 
 test("does not throw warning with expected props", () => {
   const expectedProps = { success: true };
-  const propError = checkPropTypes(
-    Congrats.propTypes,
-    expectedProps,
-    "prop",
-    Congrats.name
-  );
-  expect(propError).toBeUndefined();
+  checkProps(Congrats, expectedProps);
 });

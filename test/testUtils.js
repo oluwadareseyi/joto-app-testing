@@ -9,3 +9,17 @@ export const checkElement = (wrapper, val) => {
   const Component = wrapper.find(`[test-data="${val}"]`);
   expect(Component.length).toBe(1);
 };
+
+/**
+ * @param  {React.Component} component
+ * @param  {Object} conforming
+ */
+export const checkProps = (component, conforming) => {
+  const propError = checkPropTypes(
+    component.propTypes,
+    conforming,
+    "prop",
+    component.name
+  );
+  expect(propError).toBeUndefined();
+};
