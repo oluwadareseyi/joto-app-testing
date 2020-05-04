@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
 import Congrats from "./Congrats";
-import {checkElement} from "../test/testUtils";
+import { checkElement } from "../test/testUtils";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 /**
@@ -19,6 +19,14 @@ test("renders congrats component without fail", () => {
   checkElement(wrapper, "congrats-app");
 });
 
-test("renders no text when success prop is false", () => {});
+test("renders no text when success prop is false", () => {
+  const wrapper = setup({ success: false });
+  const component = wrapper.find("[data-test='component-congrats']");
+  expect(component.text()).toBe("");
+});
 
-test("renders congratulatory text when success prop is true", () => {});
+test("renders congratulatory text when success prop is true", () => {
+  const wrapper = setup({ success: true });
+  const component = wrapper.find("[data-test='congrats-message']");
+  expect(component.text().length).not.toBe(0);
+});
