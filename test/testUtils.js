@@ -1,3 +1,5 @@
+import checkPropTypes from "check-prop-types";
+
 /**
  * @param {ShallowWrapper} wrapper - the component wrapper
  * @param {String} val - test attribute value
