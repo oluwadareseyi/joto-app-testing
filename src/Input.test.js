@@ -19,11 +19,22 @@ const setup = (initialState = {}) => {
 
 describe("render", () => {
   describe("word has not been guessed", () => {
-    test("renders component without errors", () => {});
+    let wrapper;
+    beforeEach(() => {
+      const initialState = { success: false };
+      wrapper = setup(initialState);
+    });
+    test("renders component without errors", () => {
+      checkElement(wrapper, "component-input");
+    });
 
-    test("renders input box", () => {});
+    test("renders input box", () => {
+      checkElement(wrapper, "input-box");
+    });
 
-    test("renders submit button", () => {});
+    test("renders submit button", () => {
+      checkElement(wrapper, "submit-button");
+    });
   });
 
   describe("word has been guessed", () => {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 
 class Input extends Component {
   render() {
@@ -11,8 +10,6 @@ class Input extends Component {
     );
   }
 }
-
-Input.propTypes = {};
 
 const mapStateToProps = (state) => {
   return {};
