@@ -8,15 +8,15 @@ import PropTypes from "prop-types";
  * @returns {JSX.Element} - Rendered Component
  */
 
-const Congrats = (props) => {
-  return props.success ? (
-    <div test-data="component-congrats">
-      <span test-data="congrats-message">
+const Congrats = ({ success }) => {
+  return success ? (
+    <div data-test="component-congrats">
+      <span data-test="congrats-message">
         Congratulations!! You guessed the word!!
       </span>
     </div>
   ) : (
-    <div test-data="component-congrats"></div>
+    <div data-test="component-congrats"></div>
   );
 };
 

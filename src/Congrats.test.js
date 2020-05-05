@@ -21,13 +21,13 @@ test("renders congrats component without fail", () => {
 
 test("renders no element when success prop is false", () => {
   const wrapper = setup({ success: false });
-  const component = wrapper.find("[test-data='component-congrats']");
+  const component = wrapper.find("[data-test='component-congrats']");
   expect(component.text()).toBe("");
 });
 
 test("renders congratulatory text when success prop is true", () => {
   const wrapper = setup({ success: true });
-  const component = wrapper.find("[test-data='congrats-message']");
+  const component = wrapper.find("[data-test='congrats-message']");
   expect(component.text().length).not.toBe(0);
 });
 

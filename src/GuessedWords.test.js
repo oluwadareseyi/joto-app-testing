@@ -18,10 +18,23 @@ const setup = (props = {}) => {
   return shallow(<GuessedWords {...setupProps} />);
 };
 
-test("GuessedWords Component renders without any error", () => {
-  const wrapper = setup();
-});
-
 test("proptypes doesn't throw an error", () => {
   checkProps(GuessedWords, defaultProps);
 });
+
+describe("if there are no words guessed", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = setup({ guessedWords: [] });
+  });
+  test("renders without error", () => {
+    checkElement(wrapper, "component-guessed-words");
+  });
+
+  test("shows instruction to guess a word", () => {
+    const instructions = wrapper.find("[data-test='guess-instructions']");
+    expect(instructions.text().length).not.toBe(0);
+  });
+});
+
+describe("if there are words guessed", () => {});
