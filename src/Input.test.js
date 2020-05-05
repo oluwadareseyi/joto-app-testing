@@ -1,7 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Input from "./Input";
-import { checkElement, storeFactory } from "../test/testUtils";
+import {
+  checkElement,
+  storeFactory,
+  checkElementDoesnt,
+} from "../test/testUtils";
 
 /**
  * @function setup
@@ -38,11 +42,22 @@ describe("render", () => {
   });
 
   describe("word has been guessed", () => {
-    test("does not render component without errors", () => {});
+    let wrapper;
+    beforeEach(() => {
+      const initialState = { success: true };
+      wrapper = setup(initialState);
+    });
+    test("render component without errors", () => {
+      checkElement(wrapper, "component-input");
+    });
 
-    test("does not render input box", () => {});
+    test("does not render input box", () => {
+      checkElementDoesnt(wrapper, "input-box");
+    });
 
-    test("does not render submit button", () => {});
+    test("does not render submit button", () => {
+      checkElementDoesnt(wrapper, "submit-button");
+    });
   });
 });
 
