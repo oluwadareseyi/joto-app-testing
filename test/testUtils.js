@@ -1,5 +1,18 @@
 /* eslint-disable react/forbid-foreign-prop-types */
 import checkPropTypes from "check-prop-types";
+import { createStore } from "redux";
+import rootReducer from "../src/store/reducers";
+
+/**
+ * Create a testing store with imported reducers, state and middleware
+ * globals: rootReducer
+ * @function storeFactory
+ * @param  {Object} initialState - Initial state for store
+ * @returns {Store} - Redux Store
+ */
+export const storeFactory = (initialState) => {
+  return createStore(rootReducer, initialState);
+};
 
 /**
  * @param {ShallowWrapper} wrapper - the component wrapper
