@@ -6,9 +6,9 @@ import Congrats from "./Congrats";
 class App extends Component {
   render() {
     return (
-      <div data-test="app-component" className="App">
+      <div data-test="app-component" className="container-sm">
         <h1>Jotto</h1>
-        <Congrats success={false} />
+        <Congrats success />
         <GuessedWords
           guessedWords={[
             { guessedWord: "train", letterMatchCount: 3 },
