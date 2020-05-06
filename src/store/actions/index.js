@@ -1,9 +1,8 @@
 import actionTypes from "./actionTypes";
 
 /**
- * @function correctGuess
- * @returns {Object} - Action object with type 'CORRECT_GUESS'
+ * @function guessWord
+ * @param {String} guessWord - The guessed word.
+ * @returns {Function} - returns Redux Thunk function that dispatches an action and gives us access to state using mmiddleware.
  */
-export const correctGuess = () => {
-  return { type: actionTypes.CORRECT_GUESS };
-};
+export const guessWord = (guessedWord) => (dispatch, getState) => {};

@@ -9,7 +9,7 @@ import { middlewares } from "../src/configureStore";
  * globals: rootReducer, middlewares.
  * @function storeFactory
  * @param  {Object} initialState - Initial state for store
- * @returns {Store} - Redux Store with middleware added
+ * @returns {Store} Redux Store with middleware added
  */
 export const storeFactory = (initialState) => {
   const createStoreWithMiddleware = applyMiddleware(...middlewares)(
