@@ -42,4 +42,10 @@ describe("Redux props", () => {
     const guessedWordsProp = wrapper.instance().props.guessedWords;
     expect(guessedWordsProp).toEqual([]);
   });
+
+  test("getSecretWord action creator exists as a prop in App", () => {
+    const wrapper = setup();
+    const getSecretWord = wrapper.instance().props.getSecretWord;
+    expect(getSecretWord).toBeInstanceOf(Function);
+  });
 });
