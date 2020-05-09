@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "./store/actions";
 
-class Input extends Component {
+export class UnconnectedInput extends Component {
   render() {
     return (
       <div data-test="component-input">
@@ -15,6 +15,7 @@ class Input extends Component {
               placeholder="Enter guess"
             />
             <button
+              onClick={() => this.props.guessWord("train")}
               data-test="submit-button"
               className="btn btn-primary"
               type="submit"
@@ -32,4 +33,4 @@ const mapStateToProps = ({ success }) => {
   return { success };
 };
 
-export default connect(mapStateToProps, actions)(Input);
+export default connect(mapStateToProps, actions)(UnconnectedInput);
