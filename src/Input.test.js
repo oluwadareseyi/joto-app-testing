@@ -74,13 +74,37 @@ describe("redux props", () => {
     const guessWordProp = wrapper.instance().props.guessWord;
     expect(guessWordProp).toBeInstanceOf(Function);
   });
+});
+
+describe("guessWord action", () => {
+  let guessWordMock;
+  let wrapper;
+  const guessedWord = "train";
+
+  beforeEach(() => {
+    // create a mock function for `guessWord` action
+    guessWordMock = jest.fn();
+
+    // create a shallow wrapper and pass the mock function as a prop
+    wrapper = shallow(<UnconnectedInput guessWord={guessWordMock} />);
+
+    // add value to input box through state.
+    wrapper.setState({ currentGuess: guessedWord });
+
+    // simulate a button click.
+    const button = wrapper.find("[data-test='submit-button']");
+    button.simulate("click", { preventDefault() {} });
+  });
 
   test("guessWord function gets called on button click", () => {
-    const guessWordMock = jest.fn();
-    const wrapper = shallow(<UnconnectedInput guessWord={guessWordMock} />);
-    const button = wrapper.find("[data-test='submit-button']");
-    button.simulate("click");
+    // check if the function was called whan the button clicked virtually.
     const guessWordMockCount = guessWordMock.mock.calls.length;
     expect(guessWordMockCount).toBe(1);
+  });
+
+  test("calls `guessWord` with input value as argument", () => {
+    // get the arguments passed into the `guessWord` mock function
+    const guessedWordArg = guessWordMock.mock.calls[0][0];
+    expect(guessedWordArg).toBe(guessedWord);
   });
 });
