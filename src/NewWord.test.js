@@ -4,7 +4,13 @@ import { UnconnectedNewWord } from "./NewWord";
 
 test("`getSecretWord` function gets called on button click", () => {
   const getSecretWordMock = jest.fn();
-  const wrapper = shallow(
-    <UnconnectedNewWord getSecretWord={getSecretWordMock} />
-  );
+  const props = {
+    success: true,
+    getSecretWord: getSecretWordMock,
+  };
+  const wrapper = shallow(<UnconnectedNewWord {...props} />);
+  const button = wrapper.find("[data-test='reset-button']");
+  button.simulate("click");
+  const getSecretWordMockCall = getSecretWordMock.mock.calls.length;
+  expect(getSecretWordMockCall).toBe(1);
 });
