@@ -11,7 +11,7 @@ export default (state = false, action) => {
     case actionTypes.CORRECT_GUESS:
       return true;
 
-    case actionTypes.SUCCESS_FALSE:
+    case actionTypes.RESET_DATA:
       return false;
 
     default:

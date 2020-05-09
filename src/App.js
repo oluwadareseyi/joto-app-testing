@@ -6,6 +6,7 @@ import GuessedWords from "./GuessedWords";
 import Congrats from "./Congrats";
 import Input from "./Input";
 import TotalGuesses from "./TotalGuesses";
+import NewWord from "./NewWord";
 
 export class UnconnectedApp extends Component {
   /**
@@ -22,6 +23,7 @@ export class UnconnectedApp extends Component {
         <div>The secret word is {this.props.secretWord}</div>
         <Input />
         <Congrats success={this.props.success} />
+        <NewWord success={this.props.success} />
         <GuessedWords guessedWords={this.props.guessedWords} />
         <TotalGuesses guessedWords={this.props.guessedWords} />
       </div>

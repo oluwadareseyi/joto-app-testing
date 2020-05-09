@@ -35,6 +35,6 @@ export const getSecretWord = () => async (dispatch) => {
   });
 
   dispatch({
-    type: actionTypes.SUCCESS_FALSE,
+    type: actionTypes.RESET_DATA,
   });
 };
