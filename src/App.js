@@ -4,6 +4,8 @@ import * as actions from "./store/actions";
 import "./App.css";
 import GuessedWords from "./GuessedWords";
 import Congrats from "./Congrats";
+import Input from "./Input";
+import TotalGuesses from "./TotalGuesses";
 
 export class UnconnectedApp extends Component {
   /**
@@ -17,14 +19,11 @@ export class UnconnectedApp extends Component {
     return (
       <div data-test="app-component" className="container-sm">
         <h1>Jotto</h1>
-        <Congrats success />
-        <GuessedWords
-          guessedWords={[
-            { guessedWord: "train", letterMatchCount: 3 },
-            { guessedWord: "agile", letterMatchCount: 1 },
-            { guessedWord: "party", letterMatchCount: 5 },
-          ]}
-        />
+        <div>The secret word is {this.props.secretWord}</div>
+        <Input />
+        <Congrats success={this.props.success} />
+        <GuessedWords guessedWords={this.props.guessedWords} />
+        <TotalGuesses length={this.props.guessedWords.length} />
       </div>
     );
   }

@@ -14,6 +14,7 @@ const GuessedWords = ({ guessedWords }) => {
           <table className="table table-sm table-bordered">
             <thead className="thead-dark">
               <tr>
+                <th>#</th>
                 <th>Guess</th>
                 <th>Matching Letters</th>
               </tr>
@@ -21,6 +22,7 @@ const GuessedWords = ({ guessedWords }) => {
             <tbody>
               {guessedWords.map((word, i) => (
                 <tr data-test="guessed-word" key={i}>
+                  <td>{i + 1}</td>
                   <td>{word.guessedWord}</td>
                   <td>{word.letterMatchCount}</td>
                 </tr>
