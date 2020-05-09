@@ -1,7 +1,9 @@
 import React from "react";
 
-const totalGuesses = ({ length }) => {
-  return length === 0 ? null : <div>Total Guesses: {length}</div>;
+const totalGuesses = ({ guessedWords }) => {
+  return (
+    guessedWords.length > 0 && <div>Total Guesses: {guessedWords.length}</div>
+  );
 };
 
 export default totalGuesses;

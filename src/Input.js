@@ -4,7 +4,7 @@ import * as actions from "./store/actions";
 
 export class UnconnectedInput extends Component {
   state = {
-    currentGuess: null,
+    currentGuess: "",
   };
 
   submitGuessedWord(e) {

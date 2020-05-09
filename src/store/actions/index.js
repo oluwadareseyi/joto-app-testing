@@ -33,4 +33,8 @@ export const getSecretWord = () => async (dispatch) => {
     type: actionTypes.SET_SECRET_WORD,
     payload: res.data,
   });
+
+  dispatch({
+    type: actionTypes.SUCCESS_FALSE,
+  });
 };
