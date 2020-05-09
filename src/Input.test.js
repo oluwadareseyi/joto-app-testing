@@ -107,4 +107,8 @@ describe("guessWord action", () => {
     const guessedWordArg = guessWordMock.mock.calls[0][0];
     expect(guessedWordArg).toBe(guessedWord);
   });
+
+  test("input is cleared on submit", () => {
+    expect(wrapper.state("currentGuess")).toBe("");
+  });
 });
