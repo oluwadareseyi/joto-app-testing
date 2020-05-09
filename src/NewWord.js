@@ -2,6 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "./store/actions";
 
+/**@function UnconnectedNewWord
+ * @param  {Object} props - props passed down from Parent cmponent.
+ * @returns {JSX.Element} - JSX Element.
+ */
 export const UnconnectedNewWord = (props) => {
   return (
     props.success && (
