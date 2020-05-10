@@ -3,4 +3,5 @@ export default {
   GUESS_WORD: "GUESS_WORD",
   SET_SECRET_WORD: "SET_SECRET_WORD",
   RESET_DATA: "RESET_DATA",
+  GIVE_UP: "GIVE_UP",
 };
