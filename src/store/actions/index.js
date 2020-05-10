@@ -38,3 +38,9 @@ export const getSecretWord = () => async (dispatch) => {
     type: actionTypes.RESET_DATA,
   });
 };
+
+export const giveUpAction = () => (dispatch) => {
+  dispatch({
+    type: actionTypes.GIVE_UP,
+  });
+};

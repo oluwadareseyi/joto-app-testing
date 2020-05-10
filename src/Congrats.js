@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
  * @returns {JSX.Element} - Rendered Component
  */
 
-const Congrats = ({ success }) => {
+const Congrats = ({ success, giveUp }) => {
   return success ? (
     <div data-test="component-congrats" className="alert alert-success">
       <span data-test="congrats-message">

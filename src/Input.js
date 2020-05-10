@@ -16,7 +16,8 @@ export class UnconnectedInput extends Component {
   render() {
     return (
       <div data-test="component-input">
-        {this.props.success ? null : (
+        {this.props.success ||
+        (!this.props.success && this.props.giveUp) ? null : (
           <form className="form-inline">
             <input
               data-test="input-box"
@@ -34,6 +35,16 @@ export class UnconnectedInput extends Component {
             >
               Submit
             </button>
+            {this.props.guessedWords && this.props.guessedWords.length > 2 && (
+              <button
+                onClick={this.props.giveUpAction}
+                data-test="concede-button"
+                className="btn btn-danger ml-1"
+                type="button"
+              >
+                Give Up.
+              </button>
+            )}
           </form>
         )}
       </div>
@@ -41,8 +52,8 @@ export class UnconnectedInput extends Component {
   }
 }
 
-const mapStateToProps = ({ success }) => {
-  return { success };
+const mapStateToProps = ({ success, guessedWords, giveUp }) => {
+  return { success, guessedWords, giveUp };
 };
 
 export default connect(mapStateToProps, actions)(UnconnectedInput);

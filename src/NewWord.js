@@ -8,7 +8,7 @@ import * as actions from "./store/actions";
  */
 export const UnconnectedNewWord = (props) => {
   return (
-    props.success && (
+    (props.success || (!props.success && props.giveUp === true)) && (
       <button
         onClick={props.getSecretWord}
         data-test="reset-button"

@@ -10,6 +10,9 @@ export default (state = false, action) => {
     case actionTypes.GIVE_UP:
       return true;
 
+    case actionTypes.RESET_DATA:
+      return false;
+
     default:
       return state;
   }

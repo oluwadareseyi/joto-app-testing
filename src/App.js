@@ -7,7 +7,7 @@ import Congrats from "./Congrats";
 import Input from "./Input";
 import TotalGuesses from "./TotalGuesses";
 import NewWord from "./NewWord";
-
+import GiveUp from "./GiveUp";
 export class UnconnectedApp extends Component {
   /**
    * @method componentDidMount
@@ -23,7 +23,8 @@ export class UnconnectedApp extends Component {
         <div>The secret word is {this.props.secretWord}</div>
         <Input />
         <Congrats success={this.props.success} />
-        <NewWord success={this.props.success} />
+        <GiveUp giveUp={this.props.giveUp} secretWord={this.props.secretWord} />
+        <NewWord success={this.props.success} giveUp={this.props.giveUp} />
         <GuessedWords guessedWords={this.props.guessedWords} />
         <TotalGuesses guessedWords={this.props.guessedWords} />
       </div>
@@ -31,8 +32,8 @@ export class UnconnectedApp extends Component {
   }
 }
 
-const mapStateToProps = ({ success, guessedWords, secretWord }) => {
-  return { success, guessedWords, secretWord };
+const mapStateToProps = ({ success, guessedWords, secretWord, giveUp }) => {
+  return { success, guessedWords, secretWord, giveUp };
 };
 
 export default connect(mapStateToProps, actions)(UnconnectedApp);
