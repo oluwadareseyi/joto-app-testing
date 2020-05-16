@@ -14,7 +14,9 @@ import {
  */
 
 const setup = (initialState = {}) => {
+  // set up a store with any state passed into it and every other state in the combined reducers.
   const store = storeFactory(initialState);
+  // pass that store into the wrapper and dive two nests deep into the Input component itself.
   const wrapper = shallow(<Input store={store} />)
     .dive()
     .dive();
@@ -64,14 +66,20 @@ describe("render", () => {
 describe("redux props", () => {
   test("has success piece of state as prop", () => {
     const success = true;
+    // pass success as true instead of the default false in the reducer
     const wrapper = setup({ success });
+    // check the instance of the wrapper to get its props and then check the success prop.
     const successProp = wrapper.instance().props.success;
+
+    // see if the prop is the same as the props we passed into the wrapper.
     expect(successProp).toBe(success);
   });
 
   test("guessWord action creator is a function prop", () => {
     const wrapper = setup();
+    // we check the actions passed into the store when we mapped it to props.
     const guessWordProp = wrapper.instance().props.guessWord;
+    // check if theres is a `guessWord` prop, and if it's a function.
     expect(guessWordProp).toBeInstanceOf(Function);
   });
 });
